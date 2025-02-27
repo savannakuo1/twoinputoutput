@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeding game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Liter&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+        /* STYLE FOR THE INPUT FIELD */
+        #charInput1 {
+            width: 150px;
+            height: 50px;
+            margin: 45px;
+            margin-right: 0px;
+            font-size: 35px;
+            text-align: center;
+            border: 3px solid #000000;
+        }
+
+        #charInput2 {
+            width: 150px;
+            height: 50px;
+            margin: 45px;
+            font-size: 35px;
+            text-align: center;
+            border: 3px solid #000000;
+        }
+
+        /* STYLE FOR THE SUBMIT BUTTON */
+        #submitButton {
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            border: none;
+            color: #000000;
+            font-weight: bold;
+            border: 3px solid #000000;
+        }
+
+        #submitButton:hover {
+            background-color: white;
+            cursor: pointer;
+        }
+
+        /* STYLE FOR THE IMAGE */
+        #displayedImage {
+            display: none; /* This line is mandatory */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Patrick is hungry, feed him food!!</h1>
+<p>(Bring the burger to Patrick's mouth by changing the position of the burger)</p>
+
+<div>
+    <img src="https://img1.picmix.com/output/stamp/normal/9/8/9/5/2335989_49fbf.gif">
+</div>
+
+    <style>
+        body {
+    background-image: url("https://static.wikia.nocookie.net/spongyconstructionproject/images/9/94/Pat_Living_Room.png/revision/latest?cb=20230428005428");
+    background-size: cover;
+    background-position: center;
+    }
+
+    h1{
+        padding-left: 50px;
+        font-family: "Chewy", serif;
+        font-weight: 400;
+        font-size: 50px;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    p{
+        padding-left: 50px;
+        font-family: serif;
+        font-size: 20px;
+        color: white;
+    }
+
+    .input-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px; 
+    }
+        </style>
+
+    <div class="input-container">
+    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <input type="text" id="charInput1" placeholder="x value" maxlength="1">
+    <input type="text" id="charInput2" placeholder="y value"maxlength="1">
+
+    <!-- BUTTON TO DISPLAY IMAGE -->
+    <button onclick="displayImage()" id="submitButton">Move</button>
+    </div>
+
+
+    <!-- IMAGE TO DISPLAY -->
+    <img id="displayedImage" src="" alt="Displayed Image">
+
+
+    <!-- Image Display Script Below -->
+    <script>
+
+        function displayImage() {
+            const imgElement = document.getElementById("displayedImage");
+
+            //Letter
+            const input1_letter = document.getElementById("charInput1").value.toUpperCase();
+            const input2_letter = document.getElementById("charInput2").value.toUpperCase();
+            
+            //Number
+            const input1_number = input1_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
+            const input2_number = input2_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
+
+            //HINT 2: Assign an image based numerical values
+            if(input1_number == 67 && input2_number == 68) { //If input1_number is 67 (C) AND input2_number is 68 (D), then show this image
+                imgElement.src = "file:///Users/sava/Documents/GitHub/twoinputoutput/burger.png"
+                imgElement.style.display = "block";
+            } 
+
+
+            //HINT 3: You can perform simple math operations on the variables
+            //Arithmetic: https://www.w3schools.com/js/js_arithmetic.asp
+            let mymathresult = input1_number - input2_number;
+            console.log(mymathresult); //Console is a way to show a value in the console inspector
+
+            if(mymathresult < 1) { //If mymathresult is less than 1, then show this image
+                imgElement.src = "file:///Users/sava/Documents/GitHub/twoinputoutput/burger.png"
+                imgElement.style.display = "block";
+            }
+
+            //Remember to use if else statements to capture error conditions
+
+        }
+    </script>
+
+<div class="burger">
+    <img src="file:///Users/sava/Documents/GitHub/twoinputoutput/burger.png" style= "height: 200px;" />
+</div>
+
+</body>
+</html>
