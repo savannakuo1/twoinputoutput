@@ -84,11 +84,11 @@
             <td>$1.50</td>
         </tr>
         <tr class="active-row">
-            <td>Salty sea dog</td>
+            <td>Hash Browns</td>
             <td>$1.25</td>
         </tr>
       <tr class="active-row">
-            <td>Fries</td>
+            <td>Patty pal</td>
             <td>$0.50</td>
         </tr>
     </tbody>
@@ -178,7 +178,7 @@
         </style>
 
     <div class="input-container">
-        <input type="letter" id="charInput1" placeholder="K/S/F">
+        <input type="letter" id="charInput1" placeholder="K/H/P">
         <input type="number" id="charInput2" placeholder="$">
         <button onclick="checkInput()" id="submitButton">Buy</button>
     </div>
@@ -189,11 +189,11 @@
     <!-- Image Display Script Below -->
     <script>
 document.getElementById("charInput1").addEventListener("input", function () {
-        let allowedValues = ["K", "F", "S"];
+        let allowedValues = ["K", "H", "P"];
         let inputValue = this.value.toUpperCase(); // Convert to uppercase
 
         if (!allowedValues.includes(inputValue)) {
-            alert("Please enter only K, F, or S!");
+            alert("Please enter only K, H, or P!");
             this.value = ""; // Clear invalid input
         }
     });
@@ -205,8 +205,8 @@ document.getElementById("charInput1").addEventListener("input", function () {
 
         var mealPrices = {
             "K": 1.50,  // Krabby Patty
-            "F": 0.50,  // Fries
-            "S": 1.25   // Salty Sea Dog
+            "H": 1.25,  // Hashbrowns
+            "P": 0.50   // Patty Pal
         };
 
      if (mealPrices.hasOwnProperty(input1) && parseFloat(input2) === mealPrices[input1]) {
@@ -214,8 +214,8 @@ document.getElementById("charInput1").addEventListener("input", function () {
 
         var foodImages = {
             "K": "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2024/10/spongebob-squarepants-holding-up-krabby-patty.jpg", 
-            "F": "https://i.postimg.cc/4xtsmgrL/hashbrowns.webp", 
-            "S": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Hot_dog_with_mustard.png/640px-Hot_dog_with_mustard.png" 
+            "H": "https://i.postimg.cc/4xtsmgrL/hashbrowns.webp", 
+            "P": "https://static.wikia.nocookie.net/spongebob/images/c/cb/Yours%2C_Mine_and_Mine_048.png/revision/latest/scale-to-width-down/1200?cb=20200112045618" 
         };
 
         foodImage.src = foodImages[input1]; 
