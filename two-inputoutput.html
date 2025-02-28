@@ -101,26 +101,26 @@
         background-image: url("https://static.wikia.nocookie.net/spongyconstructionproject/images/9/94/Pat_Living_Room.png/revision/latest?cb=20230428005428");
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
         height: 100vh;
         width: 100vw;
-        background-repeat: no-repeat;
     }
 
     .patrick-container {
-            position: relative;
-            width: 250px; /* Keeps Patrick properly sized */
+        position: relative;
+        width: 250px; 
         }
 
-        #patrick {
-            width: 100%; /* Ensures Patrick stays within the container */
+    #patrick {
+        width: 100%; 
         }
 
-        #foodImage {
-            width: 80px;
-            position: absolute;
-            top: 100px; /* Adjust for mouth position */
-            left: 85px; /* Adjust for mouth position */
-            display: none;
+    #foodImage {
+        width: 80px;
+        position: absolute;
+        top: 100px; 
+        left: 85px; 
+        display: none;
         }
 
     .styled-table {
@@ -187,7 +187,6 @@
 
 
     <!-- Image Display Script Below -->
-     
     <script>
 document.getElementById("charInput1").addEventListener("input", function () {
         let allowedValues = ["K", "F", "S"];
@@ -210,22 +209,22 @@ document.getElementById("charInput1").addEventListener("input", function () {
             "S": 1.25   // Salty Sea Dog
         };
 
-        if (mealPrices.hasOwnProperty(input1) && parseFloat(input2) === mealPrices[input1]) {
-            alert("Thank you for the purchase!");
+     if (mealPrices.hasOwnProperty(input1) && parseFloat(input2) === mealPrices[input1]) {
+        alert("Thank you for the purchase!");
 
-            var foodImages = {
-                "K": "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2024/10/spongebob-squarepants-holding-up-krabby-patty.jpg", 
-                "F": "https://i.postimg.cc/4xtsmgrL/hashbrowns.webp", 
-                "S": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Hot_dog_with_mustard.png/640px-Hot_dog_with_mustard.png" 
-            };
+        var foodImages = {
+            "K": "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2024/10/spongebob-squarepants-holding-up-krabby-patty.jpg", 
+            "F": "https://i.postimg.cc/4xtsmgrL/hashbrowns.webp", 
+            "S": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Hot_dog_with_mustard.png/640px-Hot_dog_with_mustard.png" 
+        };
 
-            foodImage.src = foodImages[input1]; 
-            foodImage.style.display = "block"; // Show image
-            } else {
-            alert("Wrong!!");
-            foodImage.style.display = "none"; // Hide image if invalid
-        }
+        foodImage.src = foodImages[input1]; 
+        foodImage.style.display = "block"; // Show image
+        } else {
+        alert("Wrong!!");
+        foodImage.style.display = "none"; // Hide image if invalid
     }
+}
     
     </script>
 
