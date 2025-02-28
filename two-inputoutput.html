@@ -3,30 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feeding game</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chewy&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Liter&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <title>Buying a Meal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Chewy&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Liter&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Silkscreen:wght@400;700&family=Slackey&display=swap" rel="stylesheet">
     <style>
 
         /* STYLE FOR THE INPUT FIELD */
         #charInput1 {
-            width: 150px;
+            width: 125px;
             height: 50px;
-            margin: 45px;
-            margin-right: 0px;
+            margin-left: 20px;
+            margin-right: 25px;
             font-size: 35px;
             text-align: center;
-            border: 3px solid #000000;
+            border: 4px solid #000000;
         }
 
         #charInput2 {
-            width: 150px;
+            width: 125px;
             height: 50px;
-            margin: 45px;
+            margin-right: 35px;
             font-size: 35px;
             text-align: center;
-            border: 3px solid #000000;
+            border: 4px solid #000000;
+        }
+
+        input::placeholder {
+            color: rgb(203, 203, 203);
+            opacity: 1; 
+            text-align: center;
+            font-size: 35px;
         }
 
         /* STYLE FOR THE SUBMIT BUTTON */
@@ -37,7 +44,9 @@
             border: none;
             color: #000000;
             font-weight: bold;
-            border: 3px solid #000000;
+            background-color: rgb(189, 222, 255);
+            border: 5px solid #0e54b0;
+            border-radius: 100px;
         }
 
         #submitButton:hover {
@@ -53,33 +62,103 @@
 </head>
 <body>
 
-<h1>Patrick is hungry, feed him food!!</h1>
-<p>(Bring the burger to Patrick's mouth by changing the position of the burger)</p>
+<h1>Patrick is hungry, buy him some food!</h1>
 
-<div>
-    <img src="https://img1.picmix.com/output/stamp/normal/9/8/9/5/2335989_49fbf.gif">
+
+<div class="content-container">
+    <div class="patrick-container">
+        <img id="patrick" src="https://img1.picmix.com/output/stamp/normal/9/8/9/5/2335989_49fbf.gif">
+        <img id="foodImage" src="" style="display: none;">
+    </div>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Meal</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Krabby patty</td>
+            <td>$1.50</td>
+        </tr>
+        <tr class="active-row">
+            <td>Salty sea dog</td>
+            <td>$1.25</td>
+        </tr>
+      <tr class="active-row">
+            <td>Fries</td>
+            <td>$0.50</td>
+        </tr>
+    </tbody>
+</table>
 </div>
 
+
     <style>
-        body {
-    background-image: url("https://static.wikia.nocookie.net/spongyconstructionproject/images/9/94/Pat_Living_Room.png/revision/latest?cb=20230428005428");
-    background-size: cover;
-    background-position: center;
+    body {
+        background-image: url("https://static.wikia.nocookie.net/spongyconstructionproject/images/9/94/Pat_Living_Room.png/revision/latest?cb=20230428005428");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100vw;
+        background-repeat: no-repeat;
     }
 
+    .patrick-container {
+            position: relative;
+            width: 250px; /* Keeps Patrick properly sized */
+        }
+
+        #patrick {
+            width: 100%; /* Ensures Patrick stays within the container */
+        }
+
+        #foodImage {
+            width: 80px;
+            position: absolute;
+            top: 100px; /* Adjust for mouth position */
+            left: 85px; /* Adjust for mouth position */
+            display: none;
+        }
+
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 25px;
+        font-family: "Caveat Brush", serif;
+        min-width: 400px;
+        background-color: #eed383;
+}
+
+    .styled-table thead tr {
+        background-color: #9c7749;
+        color: #ffffff;
+        text-align: left;
+}
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+}
+
     h1{
-        padding-left: 50px;
+        padding-top: 20px;
+        padding-left: 120px;
+        padding-bottom: 50px;
         font-family: "Chewy", serif;
         font-weight: 400;
-        font-size: 50px;
+        font-size: 60px;
         letter-spacing: 2px;
-        color: white;
+        color: rgb(255, 249, 131);
     }
 
     p{
         padding-left: 50px;
-        font-family: serif;
-        font-size: 20px;
+        font-family: "Comic Neue", serif;
+        font-weight: 400;
+        font-size: 25px;
         color: white;
     }
 
@@ -87,63 +166,69 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 15px; 
+    }
+
+    .content-container {
+        display: flex; 
+        align-items: center; 
+        gap: 50px; 
+        padding-left: 125px;
+        padding-bottom: 40px;
     }
         </style>
 
     <div class="input-container">
-    <!-- INPUT FIELD FOR 1 CHARACTER -->
-    <input type="text" id="charInput1" placeholder="x value" maxlength="1">
-    <input type="text" id="charInput2" placeholder="y value"maxlength="1">
-
-    <!-- BUTTON TO DISPLAY IMAGE -->
-    <button onclick="displayImage()" id="submitButton">Move</button>
+        <input type="letter" id="charInput1" placeholder="K/S/F">
+        <input type="number" id="charInput2" placeholder="$">
+        <button onclick="checkInput()" id="submitButton">Buy</button>
     </div>
 
-
-    <!-- IMAGE TO DISPLAY -->
-    <img id="displayedImage" src="" alt="Displayed Image">
+    <img id="foodImage" src="" style="display: none; width: 150px; margin-top: 20px;">
 
 
     <!-- Image Display Script Below -->
+     
     <script>
+document.getElementById("charInput1").addEventListener("input", function () {
+        let allowedValues = ["K", "F", "S"];
+        let inputValue = this.value.toUpperCase(); // Convert to uppercase
 
-        function displayImage() {
-            const imgElement = document.getElementById("displayedImage");
-
-            //Letter
-            const input1_letter = document.getElementById("charInput1").value.toUpperCase();
-            const input2_letter = document.getElementById("charInput2").value.toUpperCase();
-            
-            //Number
-            const input1_number = input1_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
-            const input2_number = input2_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
-
-            //HINT 2: Assign an image based numerical values
-            if(input1_number == 67 && input2_number == 68) { //If input1_number is 67 (C) AND input2_number is 68 (D), then show this image
-                imgElement.src = "file:///Users/sava/Documents/GitHub/twoinputoutput/burger.png"
-                imgElement.style.display = "block";
-            } 
-
-
-            //HINT 3: You can perform simple math operations on the variables
-            //Arithmetic: https://www.w3schools.com/js/js_arithmetic.asp
-            let mymathresult = input1_number - input2_number;
-            console.log(mymathresult); //Console is a way to show a value in the console inspector
-
-            if(mymathresult < 1) { //If mymathresult is less than 1, then show this image
-                imgElement.src = "file:///Users/sava/Documents/GitHub/twoinputoutput/burger.png"
-                imgElement.style.display = "block";
-            }
-
-            //Remember to use if else statements to capture error conditions
-
+        if (!allowedValues.includes(inputValue)) {
+            alert("Please enter only K, F, or S!");
+            this.value = ""; // Clear invalid input
         }
+    });
+
+    function checkInput() {
+        var input1 = document.getElementById("charInput1").value.toUpperCase(); // Get meal choice
+        var input2 = document.getElementById("charInput2").value; // Get price
+        var foodImage = document.getElementById("foodImage");
+
+        var mealPrices = {
+            "K": 1.50,  // Krabby Patty
+            "F": 0.50,  // Fries
+            "S": 1.25   // Salty Sea Dog
+        };
+
+        if (mealPrices.hasOwnProperty(input1) && parseFloat(input2) === mealPrices[input1]) {
+            alert("Thank you for the purchase!");
+
+            var foodImages = {
+                "K": "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2024/10/spongebob-squarepants-holding-up-krabby-patty.jpg", 
+                "F": "https://i.postimg.cc/4xtsmgrL/hashbrowns.webp", 
+                "S": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Hot_dog_with_mustard.png/640px-Hot_dog_with_mustard.png" 
+            };
+
+            foodImage.src = foodImages[input1]; 
+            foodImage.style.display = "block"; // Show image
+            } else {
+            alert("Wrong!!");
+            foodImage.style.display = "none"; // Hide image if invalid
+        }
+    }
+    
     </script>
 
-<div class="burger">
-    <img src="file:///Users/sava/Documents/GitHub/twoinputoutput/burger.png" style= "height: 200px;" />
-</div>
 
 </body>
 </html>
